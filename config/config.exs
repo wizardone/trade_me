@@ -21,8 +21,10 @@ use Mix.Config
 #     config :logger, level: :info
 #
 
-config :trade_me, key: System.get_env('trade_me_key')
-config :trade_me, secret: System.get_env('trade_me_secret')
+config :trade_me, key: System.get_env("TRADE_ME_KEY")
+config :trade_me, secret: System.get_env("TRADE_ME_SECRET")
+config :trade_me, oauth_token: System.get_env("TRADE_ME_OAUTH_TOKEN")
+config :trade_me, oauth_token_secret: System.get_env("TRADE_ME_OAUTH_TOKEN_SECRET")
 # It is also possible to import configuration files, relative to this
 # directory. For example, you can emulate configuration per environment
 # by uncommenting the line below and defining dev.exs, test.exs and such.
