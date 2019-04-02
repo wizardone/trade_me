@@ -10,18 +10,18 @@ defmodule TradeMe.Profile do
   end
 
   def sold_items do
-    # case %HTTPoison.Response{body: body} = HTTPoison.get!(@main_url <> "/v1/MyTradeMe/SoldItems/Last45Days.json", @headers) do
-    #   %HTTPoison.Response{body: body, status_code: 200} -> Poison.decode!(body)
-    #   %HTTPoison.Response{status_code: 401} -> IO.puts "You are so fucked"
-    #   %HTTPoison.Error{reason: reason} -> IO.inspect reason
-    # end
+    {:error, "You must supply a filter"}
+  end
+
+  def sold_items(filter) when is_binary(filter) do
+    Request.perform("/v1/MyTradeMe/SoldItems/#{filter}.json")
   end
 
   def unsold_items do
-    # case %HTTPoison.Response{body: body} = HTTPoison.get!(@main_url <> "/v1/MyTradeMe/UnSoldItems/Last45Days.json", @headers) do
-    #   %HTTPoison.Response{body: body, status_code: 200} -> Poison.decode!(body)
-    #   %HTTPoison.Response{status_code: 401} -> IO.puts "You are so fucked"
-    #   %HTTPoison.Error{reason: reason} -> IO.inspect reason
-    # end
+    {:error, "You must supply a filter"}
+  end
+
+  def unsold_items(filter) when is_binary(filter) do
+    Request.perform("/v1/MyTradeMe/UnSoldItems/#{filter}.json")
   end
 end
